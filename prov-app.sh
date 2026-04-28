@@ -45,6 +45,6 @@ echo
 # run the app
 echo "run the app..."
 npm install
-node app.js &
+npm start &
 echo done!
 echo
