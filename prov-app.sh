@@ -44,13 +44,10 @@ echo
 
 # run the app
 echo "run the app..."
-
-if [ ! -d "node_modules" ]; then
-  npm install
-fi
 npm install pm2
+npm install 
 npx pm2 stop sparta-app 2>/dev/null || true
-npx pm2 start server.js --name sparta-app
+npx pm2 start index.js --name sparta-app
 
 echo done!
 echo
