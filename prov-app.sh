@@ -48,9 +48,9 @@ echo "run the app..."
 if [ ! -d "node_modules" ]; then
   npm install
 fi
-npm install -g pm2
-pm2 stop sparta-app 2>/dev/null || true
-pm2 start app.js --name sparta-app
+npm install pm2
+npx pm2 stop sparta-app 2>/dev/null || true
+npx pm2 start app.js --name sparta-app
 
 echo done!
 echo
