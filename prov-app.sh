@@ -50,7 +50,7 @@ if [ ! -d "node_modules" ]; then
 fi
 npm install pm2
 npx pm2 stop sparta-app 2>/dev/null || true
-npx pm2 start app.js --name sparta-app
+npx pm2 start server.js --name sparta-app
 
 echo done!
 echo
