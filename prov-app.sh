@@ -46,7 +46,7 @@ echo
 echo "run the app..."
 npm install pm2
 npm install 
-npx pm2 stop sparta-app 2>/dev/null || true
+npx pm2 stop 
 npx pm2 start index.js --name sparta-app
 
 echo done!
