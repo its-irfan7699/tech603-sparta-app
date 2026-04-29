@@ -20,6 +20,15 @@ echo done!
 echo
 
 # configure our reverse proxy
+echo "configure nginx reverse proxy..."
+sudo sed -i 's/try_files $uri $uri\/ =404;/proxy_pass http:\/\/localhost:3000;/' /etc/nginx/sites-available/default
+echo done!
+echo
+
+echo "restart nginx..."
+sudo systemctl restart nginx
+
+
 echo "restart nginx..."
 sudo systemctl restart nginx
 echo done!
@@ -44,7 +53,10 @@ echo
 
 # run the app
 echo "run the app..."
-npm install
-npm start > ~/app_logs.log &
+npm install pm2
+npm install 
+npx pm2 stop 
+npx pm2 start index.js --name sparta-app
+
 echo done!
 echo

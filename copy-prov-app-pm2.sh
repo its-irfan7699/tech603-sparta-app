@@ -44,7 +44,10 @@ echo
 
 # run the app
 echo "run the app..."
-npm install
-npm start > ~/app_logs.log &
+npm install pm2
+npm install 
+npx pm2 stop 
+npx pm2 start index.js --name sparta-app
+
 echo done!
 echo
