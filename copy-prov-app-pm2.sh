@@ -37,17 +37,17 @@ echo
 
 # get app code
 echo "clone the app code from github..."
-git clone https://github.com/its-irfan7699/tech603-sparta-app.git
-cd tech603-sparta-app/app
+git clone https://github.com/its-irfan7699/tech603-sparta-app.git repo #change name of repo to avoid confusion with the app folder inside it
+cd repo/app
 echo done!
 echo
 
 # run the app
 echo "run the app..."
-npm install pm2
+npm install pm2 -g
 npm install 
-npx pm2 stop 
-npx pm2 start index.js --name sparta-app
+npm pm2 stop 
+npm pm2 start index.js --name sparta-app
 
 echo done!
 echo

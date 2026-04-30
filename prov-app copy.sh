@@ -20,15 +20,6 @@ echo done!
 echo
 
 # configure our reverse proxy
-echo "configure nginx reverse proxy..."
-sudo sed -i 's/try_files $uri $uri\/ =404;/proxy_pass http:\/\/localhost:3000;/' /etc/nginx/sites-available/default
-##sudo sed -i 's|try_files $uri $uri/ =404;|proxy_pass http://localhost:3000;|' /etc/nginx/sites-available/default might be more readable too
-##sudo sed -i 's,try_files $uri $uri/ =404,proxy_pass http://localhost:3000,' /etc/nginx/sites-available/default
- 
-
-echo done!
-echo
-
 echo "restart nginx..."
 sudo systemctl restart nginx
 echo done!
@@ -51,12 +42,12 @@ cd tech603-sparta-app/app
 echo done!
 echo
 
+# comment this out if do not need to connect to database
+export MONGODB_URI=mongodb://172.31.25.117:27017/tictactoe
+
 # run the app
 echo "run the app..."
-npm install pm2
-npm install 
-npx pm2 stop all
-npx pm2 start index.js --name sparta-app
-
+npm install
+npm start > ~/app_logs.log &
 echo done!
 echo
