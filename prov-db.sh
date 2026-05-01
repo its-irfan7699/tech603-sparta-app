@@ -45,7 +45,7 @@ echo done!
 echo
 
 
-# configure bind IP to allow connections from any IP address, this is necessary to allow our application to connect to the mongodb server, by default mongodb binds to the localhost IP address (
+# configure bind IP to allow connections from any IP address, this is necessary to allow our application to connect to the mongodb server, by default mongodb binds to the localhost IP address (127.0.0.1)
 echo "configure bind IP..."
 sudo nano /etc/mongod.conf # this will open the mongod.conf file in the nano text editor, we need to find the line that says bindIp:
 # and change it from 127.0.0.1 to to 0.0.0.0 to allow connections from any IP address
