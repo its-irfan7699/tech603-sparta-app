@@ -42,6 +42,8 @@ cd tech603-sparta-app/app
 echo done!
 echo
 
+export MONGODB_URI=mongodb://172.31.25.58:27017/tictactoe
+
 # run the app
 echo "run the app..."
 npm install
