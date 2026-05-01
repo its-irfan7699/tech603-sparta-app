@@ -47,23 +47,24 @@ echo
 
 # configure bind IP to allow connections from any IP address, this is necessary to allow our application to connect to the mongodb server, by default mongodb binds to the localhost IP address (127.0.0.1)
 echo "configure bind IP..."
-sudo nano /etc/mongod.conf # this will open the mongod.conf file in the nano text editor, we need to find the line that says bindIp:
-# and change it from 127.0.0.1 to to 0.0.0.0 to allow connections from any IP address
+sudo sed -i 's/bindIp: 127.0.0.1/bindIp: 0.0.0.0/' /etc/mongod.conf
+echo done!
+echo
 
 
 # once we change the bind IP we need to restart the mongodb service to apply the changes, this command will restart the mongod service and allow it to listen on all IP addresses
 echo "restart mongod..."
-sudo systemctl start mongod
+sudo systemctl restart mongod
 echo done!
 echo
+
 
 # once we restart mongodb we need to enable the mongod service to it enables the mongo db, as when we start it above it doesnt enable it.
 echo "enable mongod..."
 sudo systemctl enable mongod # this command will enable the mongod service to start automatically when the system boots up, this is necessary to ensure that our application can connect to the mongodb server even after a reboot
 echo done!
 echo
-sudo systemctl status mongod # this command will show the status of the mongod service, we should see that it is active and running, if there are any issues with starting the service we can check the logs to see what went wrong
-
+#sudo systemctl status mongod # this command will show the status of the mongod service, we should see that it is active and running, if there are any issues with starting the service we can check the logs to see what went wrong
 
 
 
